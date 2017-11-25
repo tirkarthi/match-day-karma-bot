@@ -12,7 +12,7 @@ client_id=os.environ['REDDIT_CLIENT_ID']
 client_secret=os.environ['REDDIT_CLIENT_SECRET']
 password=os.environ['REDDIT_PASSWORD']
 username=os.environ['REDDIT_USERNAME']
-user_agent='user-agent for /u/singlelinebot'
+user_agent='user-agent for /u/YourFavouriteBot'
 
 subreddit = 'Cricket'
 
@@ -50,7 +50,7 @@ if __name__ == "__main__":
     i = 0
     # Calculate scores
     for comment in commentsList:
-        if not isinstance(comment, MoreComments):
+        if not isinstance(comment, MoreComments) and comment and comment.author and comment.author.name and comment.score:
             user = comment.author.name
             score = comment.score
             scores[user] += score
